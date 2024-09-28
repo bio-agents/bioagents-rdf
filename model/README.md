@@ -1,10 +1,10 @@
 # Introduction
 
-**CAUTION: bioagentsRDF is under construction; please contribute via the [tracker](https://github.com/bio-agents/bioagentsRdf/issues).  New classes and properies are yet to be formally defined.  Refer to [bioagentsSchema](http://github.com/bio-agents/bioagentsschema) and the [EDAM ontology](https://github.com/edamontology/edamontology/) upon which much of bioagentsRDF is based.**
+**CAUTION: bioagentsRDF is under construction; please contribute via the [tracker](https://github.com/bio-agents/bioagentsRdf/issues).  New classes and properies are yet to be formally defined.  Refer to [bioagents schema](http://github.com/bio-agents/bioagents-schema) and the [EDAM ontology](https://github.com/edamontology/edamontology/) upon which much of bioagentsRDF is based.**
 
-The bioagents ontology (bioagentsRDF) defines the OWL2 Web Ontology Language encoding of [bioagentsSchema](https://github.com/bio-agents/bioagentsschema); the resource description model for bioinformatics software.  This document describes the set of classes, properties and restrictions that can be used to represent and interchange information about software provided in different systems and contexts.
+The bioagents ontology (bioagentsRDF) defines the OWL2 Web Ontology Language encoding of [bioagents schema](https://github.com/bio-agents/bioagents-schema); the resource description model for bioinformatics software.  This document describes the set of classes, properties and restrictions that can be used to represent and interchange information about software provided in different systems and contexts.
 
-bioagentsRDF is fully compatible with bioagentsSchema and thus [bio.agents](https://github.com/bio-agents/bioagentsregistry/); the registry of bioinformatics software resources (https//:bio.agents) provided by [IECHOR](https://www.iechor-europe.org/).
+bioagentsRDF is fully compatible with bioagents schema and thus [bio.agents](https://github.com/bio-agents/bioagentsregistry/); the registry of bioinformatics software resources (https//:bio.agents) provided by [IECHOR](https://www.iechor-europe.org/).
 
 bioagentsRDF is an *application ontology* and re-uses other well established vocabularies wherever possible, adhering to the [MIREOT guidelines](http://precedings.nature.com/documents/3574/version/1) for concept imports.
 
@@ -37,7 +37,7 @@ obo      | http://purl.obolibrary.org/obo/               | [OBO vocabulary](http
 # Classes
 bioagentsRDF uses the following classes:
 
-class                        | description                     | bioagentsSchema
+class                        | description                     | bioagents schema
 ---------------------------- | ------------------------        | --------------
 bioagents:Agent                | Bioinformatics software         | ```<agent>```
 bioagents:AgentType            | Type of software                | ```<agentType>```
@@ -68,7 +68,7 @@ NB:  bioagents:Agent is equivalent to the Software class (http://purl.org/dc/dcm
 
 ## Subclasses of bioagents:RelatedResourceType
 
-class                        | description           | bioagentsSchema
+class                        | description           | bioagents schema
 ---------------------------- | --------------------- | --------------
 bioagents:LinkType            | Type of link          | ```<link><type>```
 bioagents:DownloadType        | Type of download      | ```<download><type>```
@@ -77,14 +77,14 @@ bioagents:DocumentationType   | Type of documentation | ```<documentation><type>
 
 ## Subclasses of bioagents:CreditType
 
-class                        | description             | bioagentsSchema
+class                        | description             | bioagents schema
 ---------------------------- | ----------------------- | --------------
 bioagents:CreditTypeEntity    | Type of credited entity | ```<credit><typeEntity>```
 bioagents:CreditTypeRole      | Role of credited entity | ```<credit><typeRole>```
 
 ## Subclasses of bioagents:iEchorCredit
 
-class                        | description               | bioagentsSchema
+class                        | description               | bioagents schema
 ---------------------------- | ------------------------- | --------------
 bioagents:iEchorNode          | IECHOR national node      | ```<iechorNode>```
 bioagents:iEchorPlatform      | IECHOR technical platform | ```<iechorPlatform>```
@@ -139,7 +139,7 @@ rdfs:comment                | Misc. entity has an associated note
 ![bioagents:Agent](images/Agent.PNG)
 
 
-property                        | value                     | bioagentsSchema
+property                        | value                     | bioagents schema
 ---------------------           | --------------            | ---------------------
 dcterms:title (1)               | xsd:token                 | ```<name>```
 dcterms:description             | xsd:token                 | ```<description>```
@@ -172,7 +172,7 @@ bioagents:hasRelatedResource (3) | bioagents:RelatedResource  | ```<link>\|<down
 
 ![bioagents:OtherId](images/OtherId.PNG)
 
-property                     | value                        | bioagentsSchema
+property                     | value                        | bioagents schema
 ---------------------------- | --------------               | ---------------------
 dcterms:identifier           | xsd:token                    | ```<otherid><value>```
 dcterms:type                 | bioagents:OtherIdType         | ```<otherid<type>```
@@ -185,7 +185,7 @@ dcterms:hasVersion           | xsd:token                    | ```<otherid><versi
 ![bioagents:Function](images/Function.PNG)
 
 
-property              | value           | bioagentsSchema
+property              | value           | bioagents schema
 --------------------- | --------------- | ---------------------
 bioagents:hasInput     | bioagents:IOData | ```<function><input>```
 bioagents:hasOperation | edam:Operation  | ```<function><operation>```
@@ -195,7 +195,7 @@ rdfs:comment          | xsd:token       | ```<function><note>```
 
 ## bioagents:IOData
 
-property               | value       | bioagentsSchema
+property               | value       | bioagents schema
 ---------------------- | ----------- | ----------------------------------
 bioagents:hasDataType   | edam:Data   | ```<function><input>\|<output><Data>```
 bioagents:hasDataFormat | edam:Format | ```<function><input>\|<output><Format>```
@@ -206,7 +206,7 @@ bioagents:hasDataFormat | edam:Format | ```<function><input>\|<output><Format>``
 
 ![bioagents:RelatedResource](images/RelatedResource.PNG)
 
-property                     | value                        | bioagentsSchema
+property                     | value                        | bioagents schema
 ---------------------------- | --------------               | ---------------------
 foaf:page                    | xsd:anyURI                   | ```<link>\|<download>\|<documentation><uri>```
 rdfs:comment                 | xsd:token                    | ```<link>\|<download>\|<documentation><note>```
@@ -219,7 +219,7 @@ dcterms:type                 | bioagents:RelatedResourceType | ```<link>\|<downl
 
 ![bioagents:Credit](images/Credit.PNG)
 
-property                     | value                        | bioagentsSchema
+property                     | value                        | bioagents schema
 ---------------------------- | --------------               | ---------------------
 foaf:name                    | xsd:token                    | ```<credit><name>```
 foaf:mbox                    | xsd:token                    | ```<credit><email>```
@@ -237,7 +237,7 @@ dcterms:type                 | bioagents:CreditType          | ```<credit><typeE
 
 ![bioagents:Publication](images/Publication.PNG)
 
-property                     | value                        | bioagentsSchema
+property                     | value                        | bioagents schema
 ---------------------------- | --------------               | ---------------------
 dcterms:identifier           | xsd:token                    | ```<publication><doi>```
 dcterms:identifier           | xsd:token                    | ```<publication><pmid>```
